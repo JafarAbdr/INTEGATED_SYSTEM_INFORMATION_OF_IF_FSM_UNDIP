@@ -1,0 +1,55 @@
+DATEREGISTERED
+ex. 2016-08-09 23:22:00
+
+KODE
+mhs                              = J24
+not->mhs                         = NJM
+
+pegawai->dosen->if               = YDI
+pegawai->dosen->nonIf            = NDI
+pegawai->nonDosen                = NDT
+pegawai->all                     = YNN
+pegawai->dosen->all              = YND
+pegawai->dosenIfWithNonDosen     = YNT
+pegawai->dosenNonIfWithNonDosen  = 2NT
+
+not->pegawai                     = NPA
+
+catatan
+prefix Mahasiswa                 = _GXCVz
+postfix Mahasisw                 = PCQZzQ
+
+prefix Non Mahasiswa             = GT_VmN
+postfix Non Mahasiswa            = aLlVmN
+
+prefix dosenIf                   = LOoPsS
+postfix dosenIf                  = 5BcdR9
+prefix dosenNonIf                = 6_G0B8
+postfix dosenNonIf               = VVDzz8
+prefix nonDosen                  = J75X_C
+postfix nonDosen                 = D3C0yS
+prefix all                       = Kx99DY
+postfix all                      = QpcD77
+prefix dosenAll                  = LmoR53
+postfix dosenAll                 = B4Y0N3
+prefix dosenIfWithNonDosen       = XloCCk
+postfix dosenIfWithNonDosen      = Ma551V
+prefix dosenNonIfWithNonDosen    = EvV45S
+postfix dosenNonIfWithNonDosen   = Ft_H_o
+
+prefix Non Pegawai               = KLbc76
+postfix Non Pegawai              = l_09HH
+
+format post.mhs.pre
+Ex. for mhs and pegawai->all => PCQZzQQpcD77YNNJ24_GXCVzKx99DY (post.mhs.all all.mhs pre.mhs.all)
+
+Key
+a = md5(hari.md5(md5(sh1(email).tahun).sh1(tanggal)))
+b = sh1(jam)
+c = md5(sh1(menit).sh1(detik))	
+tempfinalData = a.substr(0,8)+b+a.substr(8,a.length-8)+b.substr(0,4)+c.substr(9,c.length-9)+b+c.substr(0,9)+b.substr(4,b.length-4);
+
+FINAL_DATA(will sending BY Email) = tempFinalData+kode
+
+
+
